@@ -1,0 +1,359 @@
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: #f6f5f2;
+  color: #1c1917;
+}
+
+.shell {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 16px 130px;
+}
+
+/* Restaurant card */
+.banner {
+  height: 120px;
+  border-radius: 16px;
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner__initials {
+  color: #fff;
+  font-size: 40px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 16px;
+  margin-top: 12px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+.card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.card__name {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.2;
+}
+
+.pill {
+  flex-shrink: 0;
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fde68a;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+
+.card__meta {
+  margin: 6px 0 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* Rating summary */
+.summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.summary__empty {
+  margin: 4px 0;
+  font-weight: 700;
+  color: #57534e;
+}
+
+.badge {
+  min-width: 58px;
+  height: 40px;
+  padding: 0 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-weight: 800;
+  font-size: 18px;
+  color: #fff;
+}
+
+.badge--green { background: #16a34a; }
+.badge--amber { background: #d97706; }
+.badge--red { background: #dc2626; }
+
+.summary__based {
+  color: #57534e;
+  font-size: 14px;
+}
+
+/* Latest review (pinned) */
+.latest {
+  margin-top: 16px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 14px 16px 16px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+  border-top: 3px solid #16a34a;
+}
+
+.tag {
+  background: #111827;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+
+/* Review items */
+.review__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.chip {
+  min-width: 36px;
+  height: 27px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-weight: 800;
+  font-size: 14px;
+  color: #fff;
+}
+
+.chip--green { background: #16a34a; }
+.chip--amber { background: #d97706; }
+.chip--red { background: #dc2626; }
+
+.review time {
+  color: #9ca3af;
+  font-size: 12px;
+}
+
+.review__text {
+  margin: 10px 0 0;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.review__text--empty {
+  color: #b3aea7;
+  font-style: italic;
+}
+
+/* Earlier reviews */
+.earlier__title {
+  font-size: 16px;
+  margin: 22px 0 10px;
+}
+
+.earlier__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.earlier__list .review {
+  background: #fff;
+  border-radius: 14px;
+  padding: 14px 16px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.sentinel {
+  text-align: center;
+  padding: 16px 0 0;
+  color: #9ca3af;
+  font-size: 13px;
+  min-height: 24px;
+}
+
+.linklike {
+  background: none;
+  border: none;
+  color: #2563eb;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 4px;
+}
+
+/* Sticky write button */
+.sticky-cta {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  padding: 14px 16px calc(14px + env(safe-area-inset-bottom));
+  background: linear-gradient(to top, rgba(246, 245, 242, 1) 65%, rgba(246, 245, 242, 0));
+  pointer-events: none;
+  z-index: 10;
+}
+
+.cta {
+  pointer-events: auto;
+  width: 100%;
+  max-width: 480px;
+  background: #111827;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 14px 20px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.cta:active { transform: scale(0.99); }
+
+/* Review form sheet */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 24, 39, 0.5);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 20;
+}
+
+.sheet {
+  width: 100%;
+  max-width: 640px;
+  background: #fff;
+  border-radius: 20px 20px 0 0;
+  padding: 20px 20px calc(20px + env(safe-area-inset-bottom));
+}
+
+.sheet__title {
+  margin: 0;
+  font-size: 20px;
+}
+
+.sheet__sub {
+  margin: 2px 0 12px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.stars {
+  display: flex;
+  gap: 6px;
+}
+
+.star {
+  font-size: 32px;
+  line-height: 1;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #d6d3d1;
+  padding: 4px;
+  transition: color 0.1s, transform 0.1s;
+}
+
+.star--on { color: #f59e0b; }
+.star:active { transform: scale(1.1); }
+
+.sheet__text {
+  width: 100%;
+  margin-top: 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 12px;
+  font: inherit;
+  resize: vertical;
+}
+
+.sheet__text:focus {
+  outline: 2px solid #111827;
+  outline-offset: 0;
+}
+
+.sheet__counter {
+  text-align: right;
+  color: #9ca3af;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.sheet__error {
+  color: #dc2626;
+  font-size: 14px;
+  margin: 8px 0 0;
+}
+
+.sheet__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.ghost {
+  background: none;
+  border: 1px solid #e5e7eb;
+  border-radius: 999px;
+  padding: 10px 18px;
+  font: inherit;
+  cursor: pointer;
+}
+
+.primary {
+  background: #111827;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 22px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.primary:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+/* Toast */
+.toast {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #111827;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  z-index: 30;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+  max-width: calc(100% - 32px);
+}
